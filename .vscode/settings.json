@@ -1,4 +1,0 @@
-{
-    "java.configuration.updateBuildConfiguration": "automatic",
-    "spring-boot-dashboard.localeapp.start.multiple": "app\\src\\main\\java\\br\\com\\dimed\\app\\App.java"
-}
