@@ -6,6 +6,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -15,10 +16,16 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Data
 public class Item {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    Integer id;
-    String desc;
-    Double price;
+    private Integer id;
+    private String desc;
+    private Double price;
+
+    @Override
+    public String toString(){
+        return id + " " + desc + " " + price;
+    }
 }
