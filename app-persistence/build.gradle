@@ -2,6 +2,7 @@ plugins {
     id 'br.com.dimed.java-library-conventions'
     id 'org.springframework.boot' version '2.4.4'
 	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'info.solidsoft.pitest' version '1.5.1'
 }
 
 dependencies {  
@@ -12,6 +13,8 @@ dependencies {
 	runtimeOnly 'com.h2database:h2'
 
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.1.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.1.0'
 }
 
 bootJar {
@@ -21,3 +24,15 @@ bootJar {
 jar {
     enabled = true
 }
+test {
+    useJUnitPlatform()
+}
+
+pitest {
+    targetClasses = ['br.com.dimed.*']  //by default "${project.group}.*"
+    pitestVersion = '1.4.1' //not needed when a default PIT version should be used
+    threads = 4
+    outputFormats = ['XML', 'HTML']
+    timestampedReports = false
+}
+
