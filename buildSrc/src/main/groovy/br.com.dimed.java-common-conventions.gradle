@@ -17,7 +17,12 @@ dependencies {
         // Define dependency versions as constraints
         implementation 'org.apache.commons:commons-text:1.9'
     }
+    implementation 'org.springframework.boot:spring-boot-starter'
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    testImplementation group: 'junit', name: 'junit', version: '4.13.2'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.1.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.1.0'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
 
     compileOnly 'org.projectlombok:lombok'

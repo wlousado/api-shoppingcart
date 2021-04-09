@@ -3,7 +3,6 @@ package br.com.dimed.app.mockserver;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import org.mockserver.client.MockServerClient;
 import org.mockserver.integration.ClientAndServer;
 import org.mockserver.logging.MockServerLogger;
 import org.mockserver.socket.PortFactory;
@@ -34,7 +33,7 @@ public class MockTest {
         .when(
             request()
                 .withPath("/v1/cart-service/create")
-                .withMethod("GET")
+                .withMethod("POST")
             )
         .respond(
             response()

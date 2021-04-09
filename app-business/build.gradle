@@ -7,14 +7,18 @@ plugins {
     id 'org.springframework.boot' version '2.4.4'
 	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
     id 'info.solidsoft.pitest' version '1.5.1'
+    id "org.sonarqube" version "3.0"
 }
+
+apply plugin: 'info.solidsoft.pitest'
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter'
-
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    testImplementation group: 'junit', name: 'junit', version: '4.13.2'
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.1.0'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.1.0'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
 bootJar {

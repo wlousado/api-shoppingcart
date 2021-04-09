@@ -40,10 +40,11 @@ public class Cart {
     private Double total;
 
 
-    public void CalculateTotal(){
+    public Double CalculateTotal(){
         total = .0;
         for(Map.Entry<Item,Integer> entry : item.entrySet()){
             total += entry.getKey().getPrice() * entry.getValue();
         }
+        return total;
     }
 }
