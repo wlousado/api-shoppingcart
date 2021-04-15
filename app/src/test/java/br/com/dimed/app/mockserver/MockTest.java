@@ -28,7 +28,7 @@ public class MockTest {
     }
 
     @Test
-    public void testUrl(){
+    public void TestaCriacaoDeCarrinho(){
         mockServer
         .when(
             request()

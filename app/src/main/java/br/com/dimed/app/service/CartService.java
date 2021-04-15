@@ -38,7 +38,7 @@ public class CartService {
         if(qtd > 0){
             Cart cart = cartRepository.getOne(id_cart);
             Optional<Item> item = itemRepository.findById(id_item);
-            
+            item = null;
             if(cart != null && item.isPresent()){
                 cart.getItem().put(item.get(), qtd);
                 cart.CalculateTotal();

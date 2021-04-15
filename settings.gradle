@@ -8,4 +8,4 @@
  */
 
 rootProject.name = 'testes'
-include('app', 'app-persistence', 'app-business')
+include('app', 'app-persistence', 'app-business', 'app-config')

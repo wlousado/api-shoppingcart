@@ -14,6 +14,7 @@ apply plugin: 'info.solidsoft.pitest'
 dependencies {
     implementation project(":app-persistence")
     implementation project(":app-business")
+    implementation project(":app-config")
 
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-hateoas'
