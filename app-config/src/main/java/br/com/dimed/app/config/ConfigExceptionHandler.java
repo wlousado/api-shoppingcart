@@ -19,6 +19,5 @@ public class ConfigExceptionHandler {
         excepMsg.setLanguage("pt-BR");
         excepMsg.erros.add(new ErrosMsg(e, req, resp));
         return ResponseEntity.ok(excepMsg);
-        
     }
 }
