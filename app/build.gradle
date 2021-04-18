@@ -19,14 +19,10 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-hateoas'
     implementation 'org.springframework.boot:spring-boot-starter-validation'
-	//implementation 'org.springframework.boot:spring-boot-starter-web'
+
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
-    
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
-    
-// https://mvnrepository.com/artifact/org.mock-server/mockserver-client-java
-    implementation 'org.mock-server:mockserver-client-java:5.11.2'
 
     testImplementation 'org.mock-server:mockserver-netty:5.11.2'
 }

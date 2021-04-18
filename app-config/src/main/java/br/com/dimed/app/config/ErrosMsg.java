@@ -6,6 +6,8 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.http.HttpStatus;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -24,12 +26,15 @@ public class ErrosMsg {
     List<String> suggestedApplicationActions = new ArrayList<String>();
     List<String> suggestedUserActions = new ArrayList<String>();
 
-    public ErrosMsg(Exception e, HttpServletRequest req, HttpServletResponse resp) {
+    public ErrosMsg(Exception e, HttpServletRequest req, HttpServletResponse resp, HttpStatus status) {
         namespace = req.getRequestURI();   
-        name = resp.getContentType();
+        name = status.name();
         message = e.getMessage();
-        httpStatusCodes.add(resp.getStatus());
+        httpStatusCodes.add(status.value());
         
         issues.add(new Issue());
+        
+        suggestedApplicationActions.add("Entre em contato com o nosso suporte através do e-mail desenvservices@dimed.com.br");
+        suggestedUserActions.add("Por favor, caso o problema persista entre em contato com o nosso suporte");
     }
 }

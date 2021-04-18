@@ -8,7 +8,6 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,7 +28,7 @@ public class CartService {
     @Autowired
     private ItemRepository itemRepository;
 
-    @GetMapping("/add/{id_cart}/{id_item}/{qtd}")
+    @PostMapping("/add/{id_cart}/{id_item}/{qtd}")
     @Transactional
     public ResponseEntity<?> addToCartGet(
         @PathVariable Integer id_cart, 
@@ -56,4 +55,5 @@ public class CartService {
     public ResponseEntity<?> createCart(){
         return ResponseEntity.ok(cartRepository.save(new Cart()).getId());
     }
+
 }
