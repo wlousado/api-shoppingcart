@@ -13,19 +13,15 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.MapKeyColumn;
 
-import lombok.AllArgsConstructor;
+import org.springframework.hateoas.RepresentationModel;
+
 import lombok.Data;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 @Entity
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
 @Data
-public class Cart {
+@NoArgsConstructor
+public class Cart extends RepresentationModel<Cart> {
     @Id 
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Integer id;
@@ -38,7 +34,6 @@ public class Cart {
     private Map<Item, Integer> item = new HashMap<Item, Integer>();
 
     private Double total;
-
 
     public Double CalculateTotal(){
         total = .0;

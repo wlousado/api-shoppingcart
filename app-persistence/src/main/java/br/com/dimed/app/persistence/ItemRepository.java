@@ -5,7 +5,10 @@ import org.springframework.stereotype.Repository;
 
 import br.com.dimed.app.business.model.Item;
 
+
 @Repository
 public interface ItemRepository extends JpaRepository<Item, Integer> {
+
+    java.util.Optional<Item> findByDesc(String desc);
     
 }

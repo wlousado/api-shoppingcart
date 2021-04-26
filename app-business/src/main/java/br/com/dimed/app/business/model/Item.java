@@ -5,18 +5,25 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-import lombok.Getter;
+import org.springframework.hateoas.RepresentationModel;
+
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 @Entity
-@Getter
-@Setter
+@Data
+@EqualsAndHashCode(callSuper=false)
 @NoArgsConstructor
-public class Item {
+public class Item extends RepresentationModel<Item> {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Integer id;
     private String desc;
-    private Double price;
+    private Double price; 
+
+    public Item(String desc, Double price) {
+        this.desc = desc;
+        this.price = price;
+    }
 }
