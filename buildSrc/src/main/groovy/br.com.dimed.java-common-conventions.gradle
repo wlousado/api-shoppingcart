@@ -31,3 +31,7 @@ dependencies {
     compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
 }
+
+
+task stage(dependsOn: ['build', 'clean'])
+build.mustRunAfter clean
