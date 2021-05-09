@@ -15,17 +15,20 @@ import javax.persistence.MapKeyColumn;
 
 import org.springframework.hateoas.RepresentationModel;
 
-import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Data
+@EqualsAndHashCode(callSuper=false)
 @NoArgsConstructor
 public class Cart extends RepresentationModel<Cart> {
     @Id 
     @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @Getter
     private Integer id;
 
+    @Getter
     @ElementCollection
     @CollectionTable(name= "cart_item_mapping",
     joinColumns = {@JoinColumn(name= "cart_id", referencedColumnName= "id")})
@@ -33,7 +36,12 @@ public class Cart extends RepresentationModel<Cart> {
     @Column(name = "qtd")
     private Map<Item, Integer> item = new HashMap<Item, Integer>();
 
-    private Double total;
+    @Getter private Double total;
+
+    public Cart setTotal(Double value){
+        this.total = value;
+        return this;
+    }
 
     public Double CalculateTotal(){
         total = .0;

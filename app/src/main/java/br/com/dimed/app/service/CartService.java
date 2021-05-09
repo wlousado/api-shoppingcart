@@ -89,6 +89,6 @@ public class CartService {
 
     @PostMapping("")
     public ResponseEntity<?> createCart(){
-        return ResponseEntity.ok(cartRepository.save(new Cart()));
+        return ResponseEntity.ok(cartRepository.save(new Cart().setTotal(0.0)));
     }
 }
